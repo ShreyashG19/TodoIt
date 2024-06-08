@@ -1,3 +1,12 @@
-input[type="checkbox"]{
-    width: ;
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    position: relative;
+}
+input[type="checkbox"]:checked {
+    background-color: #22c55e;
+    outline: none;
+    transition: all 0.3s ease;
 }
