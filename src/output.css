@@ -562,12 +562,21 @@ video {
   margin: auto;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mt-14 {
   margin-top: 3.5rem;
 }
 
 .mt-28 {
   margin-top: 7rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .flex {
@@ -743,6 +752,22 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.decoration-double {
+  text-decoration-style: double;
+}
+
+.decoration-wavy {
+  text-decoration-style: wavy;
+}
+
+.decoration-4 {
+  text-decoration-thickness: 4px;
+}
+
 .opacity-10 {
   opacity: 0.1;
 }
@@ -757,6 +782,12 @@ video {
 
 .outline-white {
   outline-color: #fff;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .hover\:bg-blue-700:hover {
@@ -798,9 +829,135 @@ video {
   opacity: 0.5;
 }
 
+.hover\:shadow-md:hover {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-sm:hover {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-slate-700:hover {
+  --tw-shadow-color: #334155;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:shadow-slate-50:hover {
+  --tw-shadow-color: #f8fafc;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:shadow-slate-800:hover {
+  --tw-shadow-color: #1e293b;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .hover\:brightness-150:hover {
   --tw-brightness: brightness(1.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.focus\:border:focus {
+  border-width: 1px;
+}
+
+.focus\:border-none:focus {
+  border-style: none;
+}
+
+.focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
+.focus\:shadow-md:focus {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.focus\:shadow-sm:focus {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.focus\:shadow-white:focus {
+  --tw-shadow-color: #fff;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.focus\:shadow-slate-600:focus {
+  --tw-shadow-color: #475569;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.focus\:shadow-gray-600:focus {
+  --tw-shadow-color: #4b5563;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:outline:focus {
+  outline-style: solid;
+}
+
+.focus\:outline-1:focus {
+  outline-width: 1px;
+}
+
+.focus\:outline-0:focus {
+  outline-width: 0px;
+}
+
+.focus\:outline-4:focus {
+  outline-width: 4px;
+}
+
+.focus\:outline-offset-1:focus {
+  outline-offset: 1px;
+}
+
+.focus\:outline-offset-0:focus {
+  outline-offset: 0px;
+}
+
+.focus\:outline-blue-500:focus {
+  outline-color: #3b82f6;
+}
+
+.focus\:outline-slate-500:focus {
+  outline-color: #64748b;
+}
+
+.focus\:outline-slate-50:focus {
+  outline-color: #f8fafc;
+}
+
+.focus\:outline-slate-200:focus {
+  outline-color: #e2e8f0;
+}
+
+.focus\:transition-all:focus {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.focus\:transition:focus {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .active\:bg-blue-400:active {
@@ -834,6 +991,20 @@ video {
 
   .max-md\:w-6 {
     width: 1.5rem;
+  }
+
+  .max-md\:w-20 {
+    width: 5rem;
+  }
+
+  .max-md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .max-md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .max-md\:text-lg {
