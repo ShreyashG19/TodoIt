@@ -1,13 +1,10 @@
-const TODO_DIV_CLASSES = "todo flex flex-row justify-between px-3 m-3 w-auto ";
-const TASK_DIV_CLASSES =
-    "task flex flex-row space-x-3 justify-center items-center align-middle";
+const TASK_TEMPLATE = document.querySelector("#task-div");
+const HR_TEMPLATE = document.querySelector("#hr-break");
 
-
-let submitBtn = document.querySelector("#submit");
+let submitBtn = document.querySelector("#submit-btn");
 submitBtn.addEventListener("click", (e) => {
-    let taskElement = createElement();
+    let newTask = TASK_TEMPLATE.cloneNode(true);
+    let newHr = HR_TEMPLATE.cloneNode(true);
+    console.log(newTask);
+    console.log(newHr);
 });
-
-function createElement() {
-    const taskDiv = document.createElement("div");
-}
