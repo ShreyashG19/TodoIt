@@ -14,32 +14,33 @@
         <h1 class="text-6xl font-serif">TodoIt</h1>
         <div class="list w-full ">
             <div class="todo flex flex-row justify-between px-3 m-3 w-auto ">
-                <div class="task flex flex-row space-x-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon  w-8 fill-red-500 hover:fill-red-400"
+                <div class="task flex flex-row space-x-3 justify-center items-center align-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="ionicon rounded-md h-8 w-8 fill-none outline-1 outline-dashed flex-shrink-0"
                         viewBox="0 0 512 512">
-                        <circle cx="256" cy="256" r="192" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="32" />
+                        <path
+                            d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm108.25 138.29l-134.4 160a16 16 0 01-12 5.71h-.27a16 16 0 01-11.89-5.3l-57.6-64a16 16 0 1123.78-21.4l45.29 50.32 122.59-145.91a16 16 0 0124.5 20.58z" />
                     </svg>
-                    <h1 class=" task-text text-3xl max-md:text-xl">Solve the
+                    <h1 class=" task-text text-2xl  max-md:text-lg overflow-auto">Solve the
                         leetcode
                         problem</h1>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon w-8 fill-red-500 hover:fill-red-400"
-                    viewBox="0 0 512 512">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="ionicon w-8 fill-red-500 hover:fill-red-400 flex-shrink-0" viewBox="0 0 512 512">
                     <path
                         d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm75.31 260.69a16 16 0 11-22.62 22.62L256 278.63l-52.69 52.68a16 16 0 01-22.62-22.62L233.37 256l-52.68-52.69a16 16 0 0122.62-22.62L256 233.37l52.69-52.68a16 16 0 0122.62 22.62L278.63 256z" />
                 </svg>
             </div>
-
+            <hr class="w-11/12 h-0.5 m-auto opacity-10">
 
             <div class="todo flex flex-row justify-between px-3 m-3 w-auto ">
                 <div class="task flex flex-row space-x-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon  w-8 fill-red-500 hover:fill-red-400"
-                        viewBox="0 0 512 512">
-                        <circle cx="256" cy="256" r="192" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="32" />
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="ionicon rounded-md h-8  w-8 fill-none outline-1 outline-dashed" viewBox="0 0 512 512">
+                        <path
+                            d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm108.25 138.29l-134.4 160a16 16 0 01-12 5.71h-.27a16 16 0 01-11.89-5.3l-57.6-64a16 16 0 1123.78-21.4l45.29 50.32 122.59-145.91a16 16 0 0124.5 20.58z" />
                     </svg>
-                    <h1 class=" task-text text-3xl max-md:text-xl">Solve the
+                    <h1 class=" task-text text-2xl  max-md:text-lg">Solve the
                         leetcode
                         problem</h1>
                 </div>
@@ -49,6 +50,8 @@
                         d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm75.31 260.69a16 16 0 11-22.62 22.62L256 278.63l-52.69 52.68a16 16 0 01-22.62-22.62L233.37 256l-52.68-52.69a16 16 0 0122.62-22.62L256 233.37l52.69-52.68a16 16 0 0122.62 22.62L278.63 256z" />
                 </svg>
             </div>
+            <!-- <hr class="w-11/12 h-0.5 m-auto opacity-10"> -->
+
 
             <div class="input-task flex flex-col justify-center items-center mt-14 w-auto space-y-4">
                 <input type="text" class="w-4/5 h-12 rounded-lg text-black px-4"
@@ -56,6 +59,7 @@
                 <button
                     class="bg-blue-600 hover:bg-blue-700 active:bg-blue-400 h-12 w-28 text-white rounded-lg">Submit</button>
             </div>
+
             <!-- 2nd -->
             <!-- <div class="todo flex flex-row m-3 w-auto border-2 border-yellow-500 ">
                 <input type="checkbox" name="" id="">
