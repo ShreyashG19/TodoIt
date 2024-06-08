@@ -10,3 +10,12 @@ input[type="checkbox"]:checked {
     outline: none;
     transition: all 0.3s ease;
 }
+input[type="checkbox"]:checked::before {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    color: white;
+}
