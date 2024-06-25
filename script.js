@@ -14,23 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let submitBtn = document.querySelector("#submit-btn");
 submitBtn.addEventListener("click", () => {
-    let taskStr = taskInput.value;
+    let taskStr = taskInput.value.trim(" ");
     if (taskStr) {
         const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
-        todoTitles[taskStr] = false;
-        localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
-        addTask(taskStr, false);
+        if (!(taskStr in todoTitles)) {
+            todoTitles[taskStr] = false;
+            localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+            addTask(taskStr, false);
+        } else alert("Duplicate Task!");
     }
 });
 taskInput.addEventListener("keypress", (e) => {
     if (e.keyCode == 13) {
-        let taskStr = e.target.value;
+        let taskStr = e.target.value.trim(" ");
         if (taskStr) {
             const todoTitles =
                 JSON.parse(localStorage.getItem("todoTitles")) || {};
-            todoTitles[taskStr] = false;
-            localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
-            addTask(taskStr, false);
+            if (!(taskStr in todoTitles)) {
+                todoTitles[taskStr] = false;
+                localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+                addTask(taskStr, false);
+            } else alert("Duplicate Task!");
         }
     }
 });
@@ -41,7 +45,6 @@ function getRandomId() {
 function addTask(taskStr, isComplete = false) {
     let newTask = TASK_TEMPLATE.cloneNode(true);
     let newHr = HR_TEMPLATE.cloneNode(true);
-    const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
 
     newTask.classList.remove("hidden");
     newHr.classList.remove("hidden");
@@ -60,10 +63,14 @@ function addTask(taskStr, isComplete = false) {
         if (e.target.checked) {
             newTask.querySelector("h1").classList.add("line-through");
             newTask.querySelector("h1").classList.add("decoration-4");
+            const todoTitles =
+                JSON.parse(localStorage.getItem("todoTitles")) || {};
             todoTitles[taskStr] = true;
             localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
         } else {
             newTask.querySelector("h1").classList.remove("line-through");
+            const todoTitles =
+                JSON.parse(localStorage.getItem("todoTitles")) || {};
             todoTitles[taskStr] = false;
             localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
         }
