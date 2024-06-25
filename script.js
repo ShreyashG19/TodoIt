@@ -21,7 +21,7 @@ submitBtn.addEventListener("click", () => {
             todoTitles[taskStr] = false;
             localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
             addTask(taskStr, false);
-        } else alert("Duplicate Task!");
+        } else alert("Task is already in list!");
     }
 });
 taskInput.addEventListener("keypress", (e) => {
@@ -34,7 +34,7 @@ taskInput.addEventListener("keypress", (e) => {
                 todoTitles[taskStr] = false;
                 localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
                 addTask(taskStr, false);
-            } else alert("Duplicate Task!");
+            } else alert("Task is already in list!");
         }
     }
 });
