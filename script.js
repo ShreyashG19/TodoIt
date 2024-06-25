@@ -58,12 +58,10 @@ function deleteTask(newTask) {
     if (newTask.nextSibling) {
         newTask.nextSibling.remove();
         newTask.remove();
-    } else if(newTask.previousSibling){
+    } else if (newTask.previousSibling) {
         newTask.previousSibling.remove();
         newTask.remove();
-    }else{
+    } else {
         newTask.remove();
     }
 }
-
-//hello
