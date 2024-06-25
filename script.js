@@ -4,10 +4,10 @@ const taskList = document.querySelector(".list");
 const taskInput = document.querySelector("#task-input");
 
 document.addEventListener("DOMContentLoaded", () => {
-    const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || [];
+    const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
     if (todoTitles) {
-        todoTitles.forEach((title) => {
-            addTask(title);
+        Object.entries(todoTitles).forEach(([title, isChecked]) => {
+            addTask(title, isChecked);
         });
     }
 });
@@ -15,18 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
 let submitBtn = document.querySelector("#submit-btn");
 submitBtn.addEventListener("click", () => {
     let taskStr = taskInput.value;
-    addTask(taskStr);
-    const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || [];
-    todoTitles.push(taskStr);
-    localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+    if (taskStr) {
+        const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
+        todoTitles[taskStr] = false;
+        localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+        addTask(taskStr, false);
+    }
 });
 taskInput.addEventListener("keypress", (e) => {
     if (e.keyCode == 13) {
         let taskStr = e.target.value;
-        addTask(taskStr);
-        const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || [];
-        todoTitles.push(taskStr);
-        localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+        if (taskStr) {
+            const todoTitles =
+                JSON.parse(localStorage.getItem("todoTitles")) || {};
+            todoTitles[taskStr] = false;
+            localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
+            addTask(taskStr, false);
+        }
     }
 });
 function getRandomId() {
@@ -36,6 +41,7 @@ function getRandomId() {
 function addTask(taskStr, isComplete = false) {
     let newTask = TASK_TEMPLATE.cloneNode(true);
     let newHr = HR_TEMPLATE.cloneNode(true);
+    const todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
 
     newTask.classList.remove("hidden");
     newHr.classList.remove("hidden");
@@ -45,12 +51,21 @@ function addTask(taskStr, isComplete = false) {
         deleteTask(newTask);
     });
 
+    if (isComplete) {
+        newTask.querySelector("input").checked = true;
+        newTask.querySelector("h1").classList.add("line-through");
+        newTask.querySelector("h1").classList.add("decoration-4");
+    }
     newTask.querySelector("input").addEventListener("change", (e) => {
         if (e.target.checked) {
             newTask.querySelector("h1").classList.add("line-through");
             newTask.querySelector("h1").classList.add("decoration-4");
+            todoTitles[taskStr] = true;
+            localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
         } else {
             newTask.querySelector("h1").classList.remove("line-through");
+            todoTitles[taskStr] = false;
+            localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
         }
     });
     if (taskStr.trim(" ") != "") {
@@ -85,7 +100,7 @@ function deleteTask(newTask) {
     } else {
         newTask.remove();
     }
-    let todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || [];
-    todoTitles = todoTitles.filter((title) => title !== todoTitleToRemove);
+    let todoTitles = JSON.parse(localStorage.getItem("todoTitles")) || {};
+    delete todoTitles[todoTitleToRemove];
     localStorage.setItem("todoTitles", JSON.stringify(todoTitles));
 }
